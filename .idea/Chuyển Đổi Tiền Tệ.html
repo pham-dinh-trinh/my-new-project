@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> chuyen tien</title>
+</head>
+<body>
+<form>
+
+    <table width="50%">
+        <tr>
+            <th>Amount</th>
+            <th>From currency</th>
+            <th>To currency</th>
+            <th><input type="button" value="convert" onclick = convert()></th>
+
+        </tr>
+        <tr>
+            <td><input type="text" id="amount" placeholder="Nhap so tien can doi"></td>
+            <td><select name="from_currency" id="from_currency" >
+                <option value="vnd" >Việt Nam Đồng</option>
+                <option value="eur">EURO</option>
+            </select></td>
+            <td> <select name="to_currency" id="to_currency">
+                <option value="usd">Đô la Mỹ</option>
+            </select></td>
+        </tr>
+    </table>
+
+</form>
+<p>Số tiền sau khi đổi: <span id="changed"></span></p>
+<script>
+    function convert() {
+        let amount = document.getElementById('amount').value;
+        let from_currency = document.getElementById('from_currency');
+        let to_currency = document.getElementById('to_currency');
+        if(from_currency.value==='vnd' && to_currency.value==='usd'){
+            document.getElementById('changed').innerHTML = amount/23255;
+        }
+        if(from_currency.value==='eur' && to_currency.value==='usd'){
+            document.getElementById('changed').innerHTML = amount*1.1351;
+        }
+
+    }
+</script>
+</body>
+</html>
